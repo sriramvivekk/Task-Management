@@ -1,0 +1,27 @@
+<div class="card mb-5">
+  <div class="card-content">
+    <p class="title has-text-success"><%= project.title %></p>
+    <p class="subtitle is-size-7">    by: <%= project.user.first_name %>&nbsp<%= project.user.last_name%></p>
+    <div class="content">
+      <p class="is-italic"><%= project.description %></p>
+    </div>
+  </div>
+
+  <footer class="card-footer">
+    <p class="card-footer-item">
+      <span>
+        <%= link_to 'Show', project, class: "has-text-info" %>
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        <%= link_to 'Edit', edit_project_path(project), class: "has-text-dark" %>
+      </span>
+    </p>
+    <p class="card-footer-item">
+      <span>
+        <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class: "has-text-danger" %>
+      </span>
+    </p>
+  </footer>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TaskManagementApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to "TaskManagement", root_path, class: "navbar-item has-text-weight-bold is-italic", id: "logo" %>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <% if current_user %>
+                <%= link_to 'New Project', new_project_path, class: "button is-primary" %>
+                <%= link_to "Projects", projects_path, class: "button is-light" %>
+                <%= link_to "Logout", logout_path, method: :delete, class: "button is-danger" %>
+              <% else %>
+                <%= link_to "Login", login_path, class: "button is-primary" %>
+                <%= link_to "SignUp", signup_path, class: "button is-warning" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="spaceline"></div>
+    <div class="mar-top">
+      <% if flash[:notice] %>
+        <div class="notification is-primary global-notification">
+          <p class="notice has-text-centered"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="notification is-danger global-notification">
+          <p class="alert has-text-centered"><%= alert %></p>
+        </div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

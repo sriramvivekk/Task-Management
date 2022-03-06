@@ -1,0 +1,29 @@
+<div class="column is-half is-offset-one-quarter">
+
+<h1 class= "is-size-1 has-text-centered has-text-weight-bold">You can Log In Here</h1>
+
+<div class="box">
+
+
+  <%= form_tag sessions_path do %>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control">
+      <%= text_field_tag :email, "", class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Password</label>
+    <div class="control">
+      <%= password_field_tag :password, "", class: "input" %>
+    </div>
+  </div>
+
+  <%= submit_tag "Submit", class: "button is-info" %>
+
+  <% end %>
+
+</div>
+</div>

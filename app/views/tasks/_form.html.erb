@@ -1,0 +1,43 @@
+
+<div class="box">
+  <%= form_for [project, task] do |form| %>
+    <% if task.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+        <ul>
+        <% task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <label class="label">Name</label>
+      <div class="control">
+        <%= form.text_field :name, id: :task_name, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label">Status</label>
+      <div class="control select">
+        <%= form.select :status, Task.statuses.keys, id: :status, prompt: 'Select status', class: "select" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.hidden_field :project_id, id: :task_project_id %>
+    </div>
+
+    <div class="field">
+      <%= form.submit class: "button is-primary" %>
+      <% if task.persisted? %>
+        <%= link_to "Delete", project_task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-danger" %>
+      <% end %>
+    </div>
+
+  <% end %>
+
+</div>

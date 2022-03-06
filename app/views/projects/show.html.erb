@@ -1,0 +1,26 @@
+<div class="column is-half is-offset-one-quarter">
+
+  <div class="panel is-info m-5 p-1">
+    <p class="panel-heading">
+        <%= @project.title %> tasks
+    </p>
+    <% @project.tasks.each do |task|  %>
+      <%= link_to edit_project_task_path(@project, task), class: "panel-block is-active" do %>
+
+        <div class="has-text-weight-bold pr-3">
+          <%= task.name %>
+        </div>
+
+
+        <div class="is-italic has-text-primary">
+          <%= task.status %>
+        </div>
+      <% end %>
+    <% end %>
+    <%= link_to new_project_task_path(@project), class: "panel-block is-active" do %>
+      + Create new Task
+    <% end %>
+
+  </div>
+
+</div>

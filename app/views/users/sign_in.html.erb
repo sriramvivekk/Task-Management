@@ -1,0 +1,6 @@
+<h3>Login!</h3>
+<%= form_for user, url: "/sign_in" do |f| %>
+    User Name :<%= f.text_field :user_name %>
+    Password  : <%= f.password_field :password %>
+    <%= f.submit "Login" %>
+<% end %>

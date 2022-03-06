@@ -1,0 +1,11 @@
+<div class="column is-half is-offset-one-quarter">
+  <% if @projects.any? %>
+    <h1 class= "is-size-1 has-text-centered has-text-weight-bold"><%= current_user.first_name.capitalize %>'s Projects</h1>
+    <% @projects.each do |project| %>
+      <%= render "project_card",  project: project %>
+    <% end %>
+  <% else %>
+    <h3 class= "m-5 p-5">You don't have any project <%= link_to "Create A New Project", new_project_path, class: "has-text-centered is-italic is-underlined" %></h3>
+  <% end %>
+
+</div>
