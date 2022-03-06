@@ -1,4 +1,4 @@
-Message:
+
 Create a rails application to build a sample task management application with below mentioned
 details. And kindly, share the project repo link.
 Requirement:
@@ -12,3 +12,5 @@ List of Functionalities:
 3. Logout
 4. Create, Read, Update, Destroy - Project
 5. Create, React, Update, Destroy - Tasks
+
+
